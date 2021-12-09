@@ -23,9 +23,9 @@ This is a very new project, and it needs a lot of work.  Contributions are welco
 
 # Setup Instructions
 
-### Setup Instructions for Ubuntu (Tested on 20.04
+### Setup Instructions for Ubuntu (Tested on 20.04)
 
-After setting up a fresh Ubuntu instance, we need to install some packages.
+After setting up a fresh Ubuntu instance, we need to install some packages.  Note that the PHP version must be 7.4 or higher.
 
 `apt install apache2 php libapache2-mod-php php-mysql php-mbstring php-intl php-xml php-curl git composer`
 
