@@ -2,6 +2,12 @@
 
 Created in response to personal "dashboards" that are little more than pages with a list of frequently accessed links, Intranet Home Page is a personal, self-hosted **homepage** with integrations for multiple publicly-available and self-hosted data feeds.
 
+### What's new in April 2022?
+- Fixed spacing issues between weather alert banners and cards
+- Filtered out weather advisories to avoid alert fatigue and cluttering the page
+- Google search suggestions autocomplete dropdown
+- Some code cleanup
+
 ### Currently implemented integrations include:
 - (US) National Weather Service severe weather alerts
 - (US) National Weather Service current conditions and local forecast
@@ -14,7 +20,6 @@ Created in response to personal "dashboards" that are little more than pages wit
 This is a very new project, and it needs a lot of work.  Contributions are welcome!
 
 ### TODO / What I'd like to do in the near future:
-- Fix the CSS that is pushing the cards down too far below the weather alert banners
 - Fix the CSS such that card links don't get too close to the bottom of their cards
 - Move all of the data access and processing code into its own models / controllers and have the browser fetch each card separately.  This will allow each backend request (CalDAV, RSS, weather API...) to happen concurrently and speed up page load times.
 - Create a dark theme
