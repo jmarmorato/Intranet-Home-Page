@@ -83,24 +83,7 @@
     <?php endforeach; ?>
   </div>
 
-
-
-
-
-
-
-
-  <div class="row">
-
-
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    </div>
-
-  </div>
 </div>
 </div>
 </body>
-<script src="/bloodhound.js"></script>
 <script src="/script.js"></script>
