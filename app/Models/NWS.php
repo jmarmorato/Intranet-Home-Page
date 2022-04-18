@@ -63,7 +63,9 @@ class NWS extends Model
         }
       }
       if (!$dedupe_contains) {
-        array_push($alerts_deduped, $alert);
+        if (!str_contains($alert->title, "Advisory")) {
+          array_push($alerts_deduped, $alert);
+        }
       }
     }
 
@@ -134,7 +136,6 @@ class NWS extends Model
     curl_setopt($curl_obj, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($curl_obj, CURLOPT_HTTPHEADER, array(
       'User-Agent: (family-intranet, justin@marmorato.net)',
-      //'Accept: application/cap+xml'
     ));
 
     $out = curl_exec($curl_obj);
