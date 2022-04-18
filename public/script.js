@@ -41,14 +41,24 @@ function submitNewRecord() {
 *   Event Bindings
 */
 
+var searchInput = document.getElementById("appendedInputButton");
+searchInput.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+
+    console.log("Search");
+  }
+});
+
 //Capture enter key and run Google search
 $("#appendedInputButton").keyup(function(event) {
+  console.log(event.keyCode);
   if (event.keyCode === 13) {
-    alert("GSEARCH");
+    event.preventDefault();
     googleSearch();
   } else {
     //Run the autocomplete function for each character typed in the search
-    searchAutoComplete();
+    //searchAutoComplete();
   }
 });
 

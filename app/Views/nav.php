@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
   <?php if($config["header_text"] != ""): ?>
     <a class="navbar-brand" href="#"><?php echo $config["header_text"]; ?></a>
   <?php endif; ?>
@@ -50,24 +50,22 @@
       <?php endforeach; ?>
     </ul>
 
-    <form id="searchForm" method="GET" action="this-will-change">
-      <div class="input-group search">
-        <div class="input-group-prepend">
-          <div class="btn-group">
-            <button class="btn btn-outline-success my-2 my-sm-0 search-select" data-toggle="dropdown">
-              Search
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item" onclick="googleSearch();">Google</li>
-              <li class="dropdown-item" onclick="youtubeSearch();">YouTube</li>
-              <li class="dropdown-item" onclick="redditSearch();">Reddit</li>
-            </ul>
+        <form class="form-inline my-2 my-lg-0" id="searchForm" method="GET" action="this-will-change" onsubmit="googleSearch()">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <button type="button" class="btn btn-outline-primary">Google</button>
+              <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Choose Search</span>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" onclick="googleSearch();">Google</a>
+                <a class="dropdown-item" onclick="youtubeSearch();">YouTube</a>
+                <a class="dropdown-item" onclick="redditSearch();">Reddit</a>
+              </div>
+            </div>
+            <input type="text" class="form-control" id="appendedInputButton" name="this-will-change">
           </div>
-        </div>
-        <input class="form-control mr-sm-2 search-box typeahead" id="appendedInputButton" name="this-will-change" type="text">
-      </div>
-    </form>
-    
+        </form>
+
   </div>
 </nav>

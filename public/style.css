@@ -95,45 +95,50 @@ body {
   height:92%;
 }
 
-
 .dropdown-menu {
-	min-width: 200px;
+  min-width: 200px;
 }
 .dropdown-menu.columns-2 {
-	min-width: 400px;
+  min-width: 400px;
 }
 .dropdown-menu.columns-3 {
-	min-width: 600px;
+  min-width: 600px;
 }
 .dropdown-menu li a {
-	padding: 5px 15px;
-	font-weight: 300;
+  padding: 5px 15px;
+  font-weight: 300;
 }
 .multi-column-dropdown {
-	list-style: none;
+  list-style: none;
   margin: 0px;
   padding: 0px;
 }
 .multi-column-dropdown li a {
-	display: block;
-	clear: both;
-	line-height: 1.428571429;
-	color: #333;
-	white-space: normal;
+  display: block;
+  clear: both;
+  line-height: 1.428571429;
+  color: #333;
+  white-space: normal;
 }
 .multi-column-dropdown li a:hover {
-	text-decoration: none;
-	color: #262626;
-	background-color: #f8f9fa;;
+  text-decoration: none;
+  color: #262626;
+  background-color: #f8f9fa;;
 }
 
 @media (max-width: 767px) {
-	.dropdown-menu.multi-column {
-		min-width: 240px !important;
-		overflow-x: hidden;
-	}
+  .dropdown-menu.multi-column {
+    min-width: 240px !important;
+    overflow-x: hidden;
+  }
 }
 
 .main-container {
   max-width:1450px;
+}
+
+#appendedInputButton {
+  width:20em;
+  min-width:20em;
+  max-width:30em;
 }
