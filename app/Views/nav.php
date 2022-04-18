@@ -49,23 +49,21 @@
         <?php endif; ?>
       <?php endforeach; ?>
     </ul>
-
-        <form class="form-inline my-2 my-lg-0" id="searchForm" method="GET" action="this-will-change" onsubmit="googleSearch()">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <button type="button" class="btn btn-outline-primary">Google</button>
-              <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Choose Search</span>
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" onclick="googleSearch();">Google</a>
-                <a class="dropdown-item" onclick="youtubeSearch();">YouTube</a>
-                <a class="dropdown-item" onclick="redditSearch();">Reddit</a>
-              </div>
-            </div>
-            <input type="text" class="form-control" id="appendedInputButton" name="this-will-change">
+    <form class="form-inline my-2 my-lg-0" id="searchForm" method="GET" action="this-will-change" onsubmit="googleSearch()">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <button type="button" class="btn btn-outline-primary">Google</button>
+          <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Choose Search</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" onclick="googleSearch();">Google</a>
+            <a class="dropdown-item" onclick="youtubeSearch();">YouTube</a>
+            <a class="dropdown-item" onclick="redditSearch();">Reddit</a>
           </div>
-        </form>
-
+        </div>
+        <input type="text" class="form-control" id="appendedInputButton" name="this-will-change">
+      </div>
+    </form>
   </div>
 </nav>

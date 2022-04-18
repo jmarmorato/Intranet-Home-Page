@@ -3,10 +3,12 @@
 */
 
 function searchAutoComplete() {
-  var url = "/googleAutoComplete";
+  var url = "/GoogleAutoComplete";
   var query = document.getElementById("appendedInputButton").value;
 
   $.post(url, {q:query}, function(response){
+
+    console.log(response);
 
     res_obj = JSON.parse(response);
 
@@ -52,7 +54,6 @@ searchInput.addEventListener("keyup", function(event) {
 
 //Capture enter key and run Google search
 $("#appendedInputButton").keyup(function(event) {
-  console.log(event.keyCode);
   if (event.keyCode === 13) {
     event.preventDefault();
     googleSearch();
@@ -62,23 +63,10 @@ $("#appendedInputButton").keyup(function(event) {
   }
 });
 
-/*
-
-//autocomplete
-var bestPictures = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  //prefetch: '../data/films/post_1960.json',
-  remote: {
-    url: '../data/films/queries/%QUERY.json',
-    wildcard: '%QUERY'
-  }
+$('#appendedInputButton').autocomplete({
+    serviceUrl: '/GoogleAutoComplete',
+    onSelect: function (suggestion) {
+        $('#appendedInputButton').value = suggestion.value;
+        googleSearch()
+    }
 });
-
-$('#appendedInputButton').typeahead(null, {
-  name: 'best-pictures',
-  display: 'value',
-  source: bestPictures
-});
-
-*/

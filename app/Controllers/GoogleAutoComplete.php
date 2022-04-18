@@ -11,14 +11,32 @@ class GoogleAutoComplete extends \CodeIgniter\Controller
     $request = service('request');
 
     $baseAutoCompleteURL = "http://suggestqueries.google.com/complete/search?client=firefox&q=";
-    $query = $request->getPost("q");
+    $query = $_GET["query"];
 
     $requestUrl = $baseAutoCompleteURL . urlencode($query);
 
     $parameters = array();
     $response = $this->request('GET', $requestUrl, $parameters);
+    $json_response = json_decode($response->body);
 
-    return $response->body;
+    if (is_null($json_response)) {
+      return json_encode(array());
+    }
+
+    //Build the response object
+    $response_object = array(
+      "query" => $_GET["query"],
+      "suggestions" => array()
+    );
+
+    foreach ($json_response[1] as $suggestion) {
+      array_push($response_object["suggestions"], array(
+        "data" => $suggestion,
+        "value" => $suggestion
+      ));
+    }
+
+    return json_encode($response_object);
 
   }
 
