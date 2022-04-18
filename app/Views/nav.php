@@ -52,7 +52,7 @@
     <form class="form-inline my-2 my-lg-0" id="searchForm" method="GET" action="this-will-change" onsubmit="googleSearch()">
       <div class="input-group">
         <div class="input-group-prepend">
-          <button type="button" class="btn btn-outline-primary">Google</button>
+          <button type="button" class="btn btn-outline-primary" onclick="googleSearch();">Google</button>
           <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Choose Search</span>
           </button>
