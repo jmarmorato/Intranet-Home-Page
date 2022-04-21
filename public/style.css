@@ -13,11 +13,17 @@ body {
 .search {
   width: 30em;
 }
+
+.main-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .card {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 2em;
   padding-bottom: 1.5em;
-  border-radius: 0px;
+  min-height: 25em;
 }
 .row {
   width:90%;
@@ -66,7 +72,15 @@ body {
 .news-container {
   display:block;
   overflow-y: scroll;
-  max-height: 79%;
+  max-height: 90%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.cal-container {
+  display:block;
+  overflow-y: scroll;
+  max-height: 90%;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -138,9 +152,8 @@ body {
 }
 
 #appendedInputButton {
-  width:20em;
-  min-width:20em;
-  max-width:30em;
+  min-width:10em;
+  max-width:25em;
 }
 
 .autocomplete-suggestions {
@@ -166,6 +179,15 @@ body {
 
 .autocomplete-group {
   padding: 2px 5px;
+}
+
+.view-more {
+  float: right;
+}
+
+.card-title {
+  display: inline-block;
+  color: black;
 }
 
 .autocomplete-group strong {
