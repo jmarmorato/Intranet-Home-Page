@@ -12,20 +12,37 @@ class Caldav {
 
   public static function updateCache($db, $card) {
 
+    /*
+    *   How many days forward should the page display?
+    *   Pull this value from the config file
+    */
     $daysForward = $card["days_to_display"];
 
+    /*
+    *   Create CalDAV client object
+    */
     $client = new SimpleCalDav\SimpleCalDAVClient();
 
-    //Connect to calendar server
+    /*
+    *   Use the previously created CalDAV client object to connect to calendar
+    *   server with the given credentials
+    */
     $client->connect($card["caldav_url"], $card["username"], $card["password"]);
 
-    //Load calendars
+    /*
+    *   Load a list of calendars visible to the user
+    */
     $arrayOfCalendars = $client->findCalendars();
 
-    //Initialize main event array
+    /*
+    *   This array will hold all of the events pulled from CalDAV
+    */
     $all_init = array();
 
-    //Download all events from all selected calendars
+    /*
+    *   $card["calendars"] contains the list of calendars to display from the
+    *   config file.  We need to get the color of each calendar to display.
+    */
     foreach ($card["calendars"] as $calendar) {
       $client->setCalendar($arrayOfCalendars[$calendar]);
       $calendar_events = $client->getEvents();
@@ -54,7 +71,7 @@ class Caldav {
     $recurring_start = new Datetime();
     $recuring_end = new Datetime();
 
-    $recurring_start->modify("-1 day");
+    $recurring_start->modify("-5 years");
     $recuring_end->modify("+$daysForward days");
 
     foreach ($all_init as $event) {
@@ -80,6 +97,9 @@ class Caldav {
             "calendar" => $calendar,
             "recurring" => $is_recurring
           ));
+
+          echo $summary . " : " . $start . " - " . $end . PHP_EOL; 
+
         }
       } else {
         //foreach($vcalendar->VEVENT as $event) {
