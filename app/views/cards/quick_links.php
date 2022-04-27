@@ -5,7 +5,7 @@ $links = $data["card"]["links"];
 
 ?>
 
-<div class="card top-row-card">
+<div class="card top-row-card <?php echo card_dm(); ?>">
   <div class="card-body">
     <h5 class="card-title"><?php echo $card_title; ?></h5>
     <hr>

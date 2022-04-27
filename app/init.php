@@ -9,7 +9,22 @@ if (!isset($installed)) {
 }
 
 /*
-*   Get application base path
+*   Check if the user requested the page to be rendered in dark mode
+*/
+
+$dark_mode = false;
+
+if (isset($_GET["style"]) && $_GET["style"] == "dark") {
+  $dark_mode = true;
+}
+
+define("DARKMODE", $dark_mode);
+
+
+
+/*
+*   Get application base path, and define constant APPPATH to point to the
+*   absolute path to the installation.
 */
 $base_path = __DIR__;
 $path_array = explode("/", $base_path);
@@ -20,8 +35,6 @@ for ($i = 1; $i < count($path_array) - 1; $i++) {
 }
 
 define("APPPATH", $app_path);
-
-//$app_path now contains the absolute path to the installation
 
 /*
 *   Get Configuration
@@ -54,7 +67,7 @@ if ($installed) {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch(PDOException $e) {
-    echo "Database Connection Failed";
+    echo "Database Connection Failed\r";
     echo "If this is the first time you are running the software, make sure you have run install.php";
     return;
   }
@@ -79,6 +92,7 @@ if (!function_exists('str_contains')) {
 
 //System Classes
 require_once $app_path . "/system/view.php";
+require_once $app_path . "/app/darkmode.php";
 
 //Application Classes
 

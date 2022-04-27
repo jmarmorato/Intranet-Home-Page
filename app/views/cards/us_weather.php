@@ -8,7 +8,7 @@ foreach ($data["current"] as $current) {
 
 ?>
 
-<div class="card middle-row-card">
+<div class="card middle-row-card <?php echo card_dm(); ?>">
   <div class="card-body">
     <h5 class="card-title">Weather</h5>
     <hr>

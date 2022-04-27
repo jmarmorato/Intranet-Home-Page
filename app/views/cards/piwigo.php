@@ -1,4 +1,4 @@
-<div class="card top-row-card">
+<div class="card top-row-card <?php echo card_dm(); ?>">
   <div class="card-body">
     <a href="<?php echo $data["card"]["piwigo_url"]; ?>"><h5 class="card-title"><?php echo $data["card"]["card_title"]; ?></h5></a>
     <hr>

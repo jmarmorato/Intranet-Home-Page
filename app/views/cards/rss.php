@@ -1,4 +1,4 @@
-<div class="card middle-row-card">
+<div class="card middle-row-card <?php echo card_dm(); ?>">
   <div class="card-body">
     <a href="<?php echo $data["card"]["card_link"]; ?>"><h5 class="card-title"><?php echo $data["card"]["card_title"]; ?></h5></a>
     <hr>

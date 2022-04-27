@@ -52,7 +52,7 @@ echo view("/main/body", array(
   "current" => $current,
   "random_image" => $random_image,
   "articles" => $articles,
-  "events" => $events
+  "events" => $events,
 ));
 
 ?>

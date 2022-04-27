@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light justify-content-between">
+<nav class="navbar navbar-expand-md navbar-<?php echo dol(); ?> bg-<?php echo dol(); ?> justify-content-between">
   <?php if($data["config"]["header_text"] != ""): ?>
     <a class="navbar-brand" href="#"><?php echo $data["config"]["header_text"]; ?></a>
   <?php endif; ?>
@@ -52,8 +52,8 @@
     <form class="form-inline my-2 my-lg-0" id="searchForm" method="GET" action="this-will-change" onsubmit="googleSearch()">
       <div class="input-group">
         <div class="input-group-prepend">
-          <button type="button" class="btn btn-outline-primary" onclick="googleSearch();">Google</button>
-          <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn btn-outline-<?php echo sbdol(); ?>" onclick="googleSearch();">Google</button>
+          <button type="button" class="btn btn-outline-<?php echo sbdol(); ?> dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Choose Search</span>
           </button>
           <div class="dropdown-menu">
@@ -62,7 +62,7 @@
             <a class="dropdown-item" onclick="redditSearch();">Reddit</a>
           </div>
         </div>
-        <input type="text" class="form-control" id="appendedInputButton" name="this-will-change">
+        <input type="text" class="form-control <?php echo sbdol(); ?>" id="appendedInputButton" name="this-will-change">
       </div>
     </form>
   </div>

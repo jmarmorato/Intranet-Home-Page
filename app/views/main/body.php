@@ -1,4 +1,4 @@
-<body>
+<body class="<?php echo don(); ?>">
 
   <?php echo view("/main/nav", array(
     "config" => $data["config"]
