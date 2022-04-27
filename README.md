@@ -12,6 +12,12 @@ Created in response to personal "dashboards" that are little more than pages wit
 - Pressing enter key in search bar triggers google search
 - Code cleanup
 
+### Darkmode
+
+To use darkmode, append the following get query to the url: `?style=dark`
+
+Example:  `http://intranet.example.com?style=dark`
+
 ### Currently implemented integrations include:
 - (US) National Weather Service severe weather alerts
 - (US) National Weather Service current conditions and local forecast
@@ -73,7 +79,7 @@ cd /var/www
 chown www-data:www-data -R Intranet-Home-Page/
 ```
 
-Next, go to http://<server-ip>/install.php.  There, you must provide a database and associated user account for Intranet-Home-Page to use for caching external content.
+Next, go to `http://<server-ip>/install.php`.  There, you must provide a database and associated user account for Intranet-Home-Page to use for caching external content.
 
 Once this is complete, the software is installed.  
   
