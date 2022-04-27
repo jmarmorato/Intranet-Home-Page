@@ -22,7 +22,7 @@ $now->setTimestamp(strtotime("now"));
   <div class="card-body">
     <h5 class="card-title"><?php echo $data["card"]["card_title"]; ?></h5>
     <hr>
-    <div class="cal-container">
+    <div class="cal-container news-container">
 
       <?php
 
@@ -77,7 +77,7 @@ $now->setTimestamp(strtotime("now"));
               array_push($output_events, $event_string);
             } else if ($start->format("Ymd") <= $working_date->format("Ymd") && $end->format("Ymd") >= $working_date->format("Ymd")) {
               //This is an event that spans two days only, and passes through
-              $event_string = "<p title='$title' style='padding:0.25em; border-radius:0.5em; background-color:" . $event["color"] . "'>" . $event["summary"] . " " . $start->format("g:i a") . " - " . $end->format("g:i a") . "pass through</p>";
+              $event_string = "<p title='$title' style='padding:0.25em; border-radius:0.5em; background-color:" . $event["color"] . "'>" . $event["summary"] . " " . $start->format("g:i a") . " - " . $end->format("g:i a") . "</p>";
               array_push($output_events, $event_string);
             } else if ($event["summary"] == "Pay Day" && $start->format("Ymd") == $working_date->format("Ymd")) {
               $event_string = "<p title='$title' style='padding:0.25em; border-radius:0.5em; background-color:" . $event["color"] . "'>" . $event["summary"] . " " . $start->format("g:i a") . " - " . $end->format("g:i a") . "</p>";

@@ -98,8 +98,6 @@ class Caldav {
             "recurring" => $is_recurring
           ));
 
-          echo $summary . " : " . $start . " - " . $end . PHP_EOL; 
-
         }
       } else {
         //foreach($vcalendar->VEVENT as $event) {
