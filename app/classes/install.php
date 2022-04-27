@@ -10,7 +10,18 @@ class Installer {
     return is_writable($path . "/writable/");
   }
 
-  static function build_database($host, $user, $pass, $db) {
+  static function write_db_config($host, $user, $pass, $db, $path) {
+    $db_config = array(
+      "host" => $host,
+      "user" => $user,
+      "pass" => $pass,
+      "db"   => $db
+    );
+
+    file_put_contents($path . "/writable/db.json", json_encode($db_config));
+  }
+
+  static function build_database($host, $user, $pass, $db, $path) {
     /*
     *   Connect to MySQL and create necessary tables.
     *   Returns true if successful, or the MySQL error if one is raised
@@ -27,6 +38,8 @@ class Installer {
     $sql = file_get_contents(APPPATH . "/system/schema.sql");
 
     $query_result = $conn->query($sql);
+
+    self::write_db_config($host, $user, $pass, $db, $path);
 
     return true;
 

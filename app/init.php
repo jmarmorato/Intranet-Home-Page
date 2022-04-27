@@ -52,6 +52,7 @@ if ($installed) {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch(PDOException $e) {
     echo "Database Connection Failed";
+    echo "If this is the first time you are running the software, make sure you have run install.php";
     return;
   }
 

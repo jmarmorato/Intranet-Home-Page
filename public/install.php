@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ));
 
   } else {
-    $result = Installer::build_database($_POST["host"], $_POST["user"], $_POST["pass"], $_POST["schema"]);
+    $result = Installer::build_database($_POST["host"], $_POST["user"], $_POST["pass"], $_POST["schema"], APPPATH);
 
     if ($result !== true) {
 
