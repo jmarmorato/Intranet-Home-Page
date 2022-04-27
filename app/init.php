@@ -40,11 +40,14 @@ if ($installed) {
 *   Connect to MySQL
 */
 
+$db_config_path = APPPATH . "/writable/db.json";
+$db_config = json_decode(file_get_contents($db_config_path));
+
 if ($installed) {
-  $server = $config["database"]["host"];
-  $username = $config["database"]["username"];
-  $password = $config["database"]["password"];
-  $schema = $config["database"]["schema"];
+  $server = $db_config->host;
+  $username = $db_config->user;
+  $password = $db_config->pass;
+  $schema = $db_config->db;
 
   try {
     $conn = new PDO("mysql:host=$server;dbname=$schema", $username, $password);
