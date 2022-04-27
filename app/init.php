@@ -1,6 +1,14 @@
 <?php
 
 /*
+*   Check if the application is installed already, or if we are installing it now
+*/
+
+if (!isset($installed)) {
+  $installed = true;
+}
+
+/*
 *   Get application base path
 */
 $base_path = __DIR__;
@@ -18,29 +26,35 @@ define("APPPATH", $app_path);
 /*
 *   Get Configuration
 */
-$config = file_get_contents("../config.json");
-$config = json_decode($config, true);
 
-if ($config == null) {
-  return "Error reading config file";
+if ($installed) {
+  $config = file_get_contents("../config.json");
+  $config = json_decode($config, true);
+
+  if ($config == null) {
+    return "Error reading config file";
+  }
 }
 
 /*
 *   Connect to MySQL
 */
 
-$server = $config["database"]["host"];
-$username = $config["database"]["username"];
-$password = $config["database"]["password"];
-$schema = $config["database"]["schema"];
+if ($installed) {
+  $server = $config["database"]["host"];
+  $username = $config["database"]["username"];
+  $password = $config["database"]["password"];
+  $schema = $config["database"]["schema"];
 
-try {
-  $conn = new PDO("mysql:host=$server;dbname=$schema", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-  echo "Database Connection Failed";
-  return;
+  try {
+    $conn = new PDO("mysql:host=$server;dbname=$schema", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  } catch(PDOException $e) {
+    echo "Database Connection Failed";
+    return;
+  }
+
 }
 
 /*
@@ -63,11 +77,16 @@ if (!function_exists('str_contains')) {
 require_once $app_path . "/system/view.php";
 
 //Application Classes
-require_once $app_path . "/app/classes/us_nws.php";
-require_once $app_path . "/app/classes/piwigo.php";
-require_once $app_path . "/app/classes/rss.php";
-require_once $app_path . "/app/classes/caldav.php";
 
-$cards = $config["cards"];
+if ($installed) {
+  require_once $app_path . "/app/classes/us_nws.php";
+  require_once $app_path . "/app/classes/piwigo.php";
+  require_once $app_path . "/app/classes/rss.php";
+  require_once $app_path . "/app/classes/caldav.php";
+
+  $cards = $config["cards"];
+} else {
+  require_once $app_path . "/app/classes/install.php";
+}
 
 ?>

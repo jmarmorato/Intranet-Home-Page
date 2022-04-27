@@ -194,3 +194,14 @@ body {
   display: block;
   border-bottom: 1px solid #000;\
 }
+
+.installer-card {
+  max-width: 35em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.installer-header {
+  text-align: center;
+  margin-top: 1em;
+}
