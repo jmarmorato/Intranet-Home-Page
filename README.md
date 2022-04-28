@@ -2,12 +2,21 @@
 
 Created in response to personal "dashboards" that are little more than pages with a list of frequently accessed links, Intranet Home Page is a personal, self-hosted **homepage** with integrations for multiple publicly-available and self-hosted data feeds.  It can display RSS feeds, your self-hosted CalDAV calendar, a random selection of images from Piwigo, and more.
 
-### What's new in Version 2?
-- Intranet-Home-Page now uses MySQL to cache external content to speed up page generation (more on that later)
+### What's new in Version 2? (Major Changes)
+- Intranet-Home-Page now uses MySQL to cache external content to speed up page generation (4 seconds to .4 seconds)
+- Dark Mode!
+- Removed CodeIgnitor (I love CodeIgnitor, but it was too much bloat for this specific use case)
 - Fixed spacing issues between weather alert banners and cards
-- Filtered out weather advisories to avoid alert fatigue and cluttering the page
+- Filtered out weather advisories to avoid alert fatigue and cluttering the page (watches and warnings appear)
 - Google search suggestions autocomplete dropdown
-- Some code cleanup
+- Pressing enter key in search bar triggers google search
+- Code cleanup
+
+### Darkmode
+
+To use darkmode, append the following get query to the url: `?style=dark`
+
+Example:  `http://intranet.example.com?style=dark`
 
 ### Currently implemented integrations include:
 - (US) National Weather Service severe weather alerts
@@ -18,10 +27,7 @@ Created in response to personal "dashboards" that are little more than pages wit
 - Static Image
 - RSS Feed
 
-This is a very new project, and it needs a lot of work.  Contributions are welcome!
-
-### TODO / What I'd like to do in the near future:
-- Create a dark theme
+This is a new project, and it needs a lot of work for new integrations.  Contributions are welcome!
 
 ![name-of-you-image](https://github.com/jmarmorato/Intranet-Home-Page/blob/master/screenshots/1.png?raw=true)
 
@@ -73,7 +79,7 @@ cd /var/www
 chown www-data:www-data -R Intranet-Home-Page/
 ```
 
-Next up, goto http://<server-ip>/install.php.  There, you must provide a database and associated user account for Intranet-Home-Page to use for caching external content.
+Next, go to `http://<server-ip>/install.php`.  There, you must provide a database and associated user account for Intranet-Home-Page to use for caching external content.
 
 Once this is complete, the software is installed.  
   
