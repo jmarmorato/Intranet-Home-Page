@@ -61,8 +61,8 @@ Restart Apache
 Download SabreDAV dependency
 
 ```
-cd /var/www/Intranet-Home-Page/app/ThirdParty
-composer require sabre/dav ~3.2.0
+cd /var/www/Intranet-Home-Page/ThirdParty
+composer install
 ```
 
 Rename config.json.default to config.json
