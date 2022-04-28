@@ -36,7 +36,8 @@ Example:  `http://intranet.example.com?style=dark`
 This is a new project, and it needs a lot of work for new integrations.  Contributions are welcome!
 
 
-![name-of-you-image](https://github.com/jmarmorato/Intranet-Home-Page/blob/master/screenshots/1.png?raw=true)
+![Dark](https://github.com/jmarmorato/Intranet-Home-Page/raw/master/screenshots/Darkmode.PNG?raw=true)
+![Light](https://github.com/jmarmorato/Intranet-Home-Page/raw/master/screenshots/Default.PNG?raw=true)
 
 # Setup Instructions
 
