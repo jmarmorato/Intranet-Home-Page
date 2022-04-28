@@ -10,5 +10,9 @@
   <script src="/typeahead.js"></script>
   <link rel="stylesheet" href="/style.css">
 
+  <?php if(DARKMODE): ?>
+    <link rel="stylesheet" href="/darkmode_style.css">
+  <?php endif; ?>
+
   <title><?php echo $data["config"]["page_title"]; ?></title>
 </head>

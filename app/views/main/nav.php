@@ -5,7 +5,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse <?php echo don(); ?>" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <?php foreach($data["config"]["nav"]["lists"] as $list): ?>
         <?php if (!isset($list["columns"])) : ?>
@@ -13,7 +13,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php echo $list["title"]; ?>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu <?php echo don(); ?>" aria-labelledby="navbarDropdown">
               <?php foreach($list["items"] as $menu_item): ?>
                 <?php if(isset($menu_item["link_url"]) && isset($menu_item["link_text"])): ?>
                   <a class="dropdown-item" href="<?php echo $menu_item["link_url"]; ?>"><?php echo $menu_item["link_text"]; ?></a>
@@ -26,7 +26,7 @@
         <?php else: ?>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><?php echo $list["title"]; ?> <b class="caret"></b></a>
-            <ul class="dropdown-menu multi-column columns-<?php echo count($list["columns"]); ?>">
+            <ul class="dropdown-menu multi-column <?php echo dol(); ?> columns-<?php echo count($list["columns"]); ?>">
               <div class="row">
                 <?php foreach($list["columns"] as $menu_items): ?>
                   <div class="col-sm-<?php echo 12 / count($list["columns"]); ?>">
@@ -56,7 +56,7 @@
           <button type="button" class="btn btn-outline-<?php echo sbdol(); ?> dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Choose Search</span>
           </button>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu <?php don(); ?>">
             <a class="dropdown-item" onclick="googleSearch();">Google</a>
             <a class="dropdown-item" onclick="youtubeSearch();">YouTube</a>
             <a class="dropdown-item" onclick="redditSearch();">Reddit</a>

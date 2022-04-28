@@ -1,10 +1,7 @@
+/* Main body style */
 body {
   background-color: #d3d3d3;
   margin-bottom: 2em;
-}
-
-body.dark {
-  background-color: #121212;
 }
 
 div.text-white h5 {
@@ -15,9 +12,22 @@ div.text-white a {
   color: white;
 }
 
+div#navbarSupportedContent.dark a{
+  color:white !important;
+}
+
+div.dropdown-menu.dark {
+  background-color: #343A40;
+}
+
+div.dropdown-menu.dark a:hover {
+  background-color: #4e5760;
+}
+
 input.light {
   background-color: #343A40;
   border-color: #F8F9FA;
+  color: white;
 }
 
 input.dark {
@@ -37,8 +47,8 @@ input.dark {
 }
 
 .main-container{
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -52,7 +62,7 @@ input.dark {
   margin-left: auto;
   margin-right: auto;
 }
-.random-sample {
+.random-sample /* (Hold the one you need) */{
   max-width: 100%;
   max-height: 90%;
 }
@@ -162,6 +172,8 @@ input.dark {
   background-color: #f8f9fa;;
 }
 
+
+
 @media (max-width: 767px) {
   .dropdown-menu.multi-column {
     min-width: 240px !important;
@@ -176,6 +188,15 @@ input.dark {
 #appendedInputButton {
   width:20em;
 }
+
+.card-title {
+  display: inline-block;
+  color: black;
+}
+
+/*
+*   Auto Complete
+*/
 
 .autocomplete-suggestions {
   border: 1px solid #999;
@@ -206,23 +227,56 @@ input.dark {
   float: right;
 }
 
-.card-title {
-  display: inline-block;
-  color: black;
-}
-
 .autocomplete-group strong {
   display: block;
   border-bottom: 1px solid #000;\
 }
 
+/*
+*   Installer Classes
+*/
+
+/* Main Installer Container */
 .installer-card {
   max-width: 35em;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Installer Header */
 .installer-header {
   text-align: center;
   margin-top: 1em;
 }
+
+/*
+*   Dark Mode Multi Column
+*/
+
+
+/* Multi Column List Item Text */
+ul.multi-column.dark a {
+  color: white;
+}
+
+/* Multi Column List Background Hover */
+ul.multi-column.dark a:hover {
+  background-color: #4e5760;
+}
+
+/* Multi Column List Background */
+ul.multi-column.dark {
+  background-color: #343A40;
+}
+
+/*
+*   Other darkmode
+*/
+
+body.dark {
+  background-color: #121212;
+}
+
+/*
+*   Dark Mode for autocomplete classes are in darkmode_style.css
+*/
