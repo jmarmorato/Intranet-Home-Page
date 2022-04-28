@@ -18,6 +18,12 @@ To use darkmode, append the following get query to the url: `?style=dark`
 
 Example:  `http://intranet.example.com?style=dark`
 
+### What's new in April 2022?
+- Fixed spacing issues between weather alert banners and cards
+- Filtered out weather advisories to avoid alert fatigue and cluttering the page
+- Google search suggestions autocomplete dropdown
+- Some code cleanup
+
 ### Currently implemented integrations include:
 - (US) National Weather Service severe weather alerts
 - (US) National Weather Service current conditions and local forecast
@@ -28,6 +34,7 @@ Example:  `http://intranet.example.com?style=dark`
 - RSS Feed
 
 This is a new project, and it needs a lot of work for new integrations.  Contributions are welcome!
+
 
 ![name-of-you-image](https://github.com/jmarmorato/Intranet-Home-Page/blob/master/screenshots/1.png?raw=true)
 
