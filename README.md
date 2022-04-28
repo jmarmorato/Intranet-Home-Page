@@ -1,6 +1,22 @@
 # Intranet-Home-Page
 
-Created in response to personal "dashboards" that are little more than pages with a list of frequently accessed links, Intranet Home Page is a personal, self-hosted **homepage** with integrations for multiple publicly-available and self-hosted data feeds.
+Created in response to personal "dashboards" that are little more than pages with a list of frequently accessed links, Intranet Home Page is a personal, self-hosted **homepage** with integrations for multiple publicly-available and self-hosted data feeds.  It can display RSS feeds, your self-hosted CalDAV calendar, a random selection of images from Piwigo, and more.
+
+### What's new in Version 2? (Major Changes)
+- Intranet-Home-Page now uses MySQL to cache external content to speed up page generation (4 seconds to .4 seconds)
+- Dark Mode!
+- Removed CodeIgnitor (I love CodeIgnitor, but it was too much bloat for this specific use case)
+- Fixed spacing issues between weather alert banners and cards
+- Filtered out weather advisories to avoid alert fatigue and cluttering the page (watches and warnings appear)
+- Google search suggestions autocomplete dropdown
+- Pressing enter key in search bar triggers google search
+- Code cleanup
+
+### Darkmode
+
+To use darkmode, append the following get query to the url: `?style=dark`
+
+Example:  `http://intranet.example.com?style=dark`
 
 ### What's new in April 2022?
 - Fixed spacing issues between weather alert banners and cards
@@ -17,12 +33,8 @@ Created in response to personal "dashboards" that are little more than pages wit
 - Static Image
 - RSS Feed
 
-This is a very new project, and it needs a lot of work.  Contributions are welcome!
+This is a new project, and it needs a lot of work for new integrations.  Contributions are welcome!
 
-### TODO / What I'd like to do in the near future:
-- Fix the CSS such that card links don't get too close to the bottom of their cards
-- Move all of the data access and processing code into its own models / controllers and have the browser fetch each card separately.  This will allow each backend request (CalDAV, RSS, weather API...) to happen concurrently and speed up page load times.
-- Create a dark theme
 
 ![name-of-you-image](https://github.com/jmarmorato/Intranet-Home-Page/blob/master/screenshots/1.png?raw=true)
 
@@ -32,7 +44,7 @@ This is a very new project, and it needs a lot of work.  Contributions are welco
 
 After setting up a fresh Ubuntu instance, we need to install some packages.  Note that the PHP version must be 7.4 or higher.
 
-`apt install apache2 php libapache2-mod-php php-mysql php-mbstring php-intl php-xml php-curl git composer`
+`apt install apache2 php libapache2-mod-php php-mysql php-mbstring php-xml php-curl git composer`
 
 Next we have to download the git repository
 
@@ -56,8 +68,8 @@ Restart Apache
 Download SabreDAV dependency
 
 ```
-cd /var/www/Intranet-Home-Page/app/ThirdParty
-composer require sabre/dav ~3.2.0
+cd /var/www/Intranet-Home-Page/ThirdParty
+composer install
 ```
 
 Rename config.json.default to config.json
@@ -67,13 +79,25 @@ cd /var/www/Intranet-Home-Page
 cp config.json.default config.json
 ```
 
-Finally, set proper ownership to the web-server user
+Set proper ownership to the web-server user
 
 ```
 cd /var/www
 chown www-data:www-data -R Intranet-Home-Page/
 ```
 
+Next, go to `http://<server-ip>/install.php`.  There, you must provide a database and associated user account for Intranet-Home-Page to use for caching external content.
+
+Once this is complete, the software is installed.  
+  
+# Cron
+  
+To speed up page generation time, Intranet-Home-Page caches the results of external API calls, like calendar servers, RSS feeds, Piwigo albums, and weather alerts.  In testing, this cut page generation times from around 4 seconds to around 0.4 seconds.  When the home page is requested, this data is retrieved and returned.  The cache is refreshed using the cron.php script located in the app directory.  
+The best way to automatically trigger this cache refresh is using Cron.
+  
+```
+*/5 * * * * cd /var/www/Intranet-Home-Page/app && php cron.php  
+```
 # Configuration
 
 ### Branding

@@ -1,0 +1,2 @@
+To incorporate SimpleCalDav in Intranet-Home-Page, I had to specify the
+namespace in each file.

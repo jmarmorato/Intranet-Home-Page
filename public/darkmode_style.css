@@ -1,0 +1,45 @@
+.autocomplete-suggestions {
+  border: 1px solid #999;
+  background: #343A40;
+  overflow: auto;
+  color: white;
+}
+
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.autocomplete-selected {
+  background: #F0F0F0;
+}
+
+.autocomplete-suggestions strong {
+  font-weight: normal;
+  color: white;
+}
+
+.autocomplete-group {
+  padding: 2px 5px;
+}
+
+.view-more {
+  float: right;
+}
+
+.autocomplete-group strong {
+  display: block;
+  border-bottom: 1px solid #000;\
+}
+
+/* Search Engine Selector Dropdown */
+div.dropdown-menu {
+  background-color: #343A40;
+  color: white;
+}
+
+/* Search Engine Selector Dropdown Hover */
+div.dropdown-menu a:hover {
+  background-color: #4e5760;
+}

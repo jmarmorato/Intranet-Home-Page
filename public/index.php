@@ -1,37 +1,58 @@
 <?php
 
-// Path to the front controller (this file)
-define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
+/*
+*   Application boot
+*/
+
+require_once "../app/init.php";
 
 /*
- *---------------------------------------------------------------
- * BOOTSTRAP THE APPLICATION
- *---------------------------------------------------------------
- * This process sets up the path constants, loads and registers
- * our autoloader, along with Composer's, loads our constants
- * and fires up an environment-specific bootstrapping.
- */
+*   Begin rendering output
+*/
 
-// Ensure the current directory is pointing to the front controller's directory
-chdir(__DIR__);
-
-// Load our paths config file
-// This is the line that might need to be changed, depending on your folder structure.
-$pathsConfig = FCPATH . '../app/Config/Paths.php';
-// ^^^ Change this if you move your application folder
-require realpath($pathsConfig) ?: $pathsConfig;
-
-$paths = new Config\Paths();
-
-// Location of the framework bootstrap file.
-$bootstrap = rtrim($paths->systemDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'bootstrap.php';
-$app       = require realpath($bootstrap) ?: $bootstrap;
+echo view("main/header", array(
+  "config" => $config
+));
 
 /*
- *---------------------------------------------------------------
- * LAUNCH THE APPLICATION
- *---------------------------------------------------------------
- * Now that everything is setup, it's time to actually fire
- * up the engines and make this app do its thang.
- */
-$app->run();
+*   Initilize Data
+*/
+
+$forecast = null;
+$alerts = null;
+
+//Get cached data from database
+
+if($config["weather_alerts"]["enabled"]) {
+  $alerts = US_NWS::retrieveAlertsCache($conn, $config);
+}
+
+foreach ($config["cards"] as $card) {
+  switch ($card["type"]) {
+    case "us_weather":
+      $current = US_NWS::retrieveCurrentCache($conn, $config);
+      $forecast = US_NWS::retrieveForecastCache($conn, $config);
+      break;
+    case "piwigo":
+      $random_image = Piwigo::getRandomImage($conn);
+      break;
+    case "rss":
+      $articles = Rss::retrieveRSSCache($conn, $card);
+      break;
+    case "caldav":
+      $events = Caldav::retrieveEvents($conn, $card);
+      break;
+  }
+}
+
+echo view("/main/body", array(
+  "config" => $config,
+  "alerts" => $alerts,
+  "forecast" => $forecast,
+  "current" => $current,
+  "random_image" => $random_image,
+  "articles" => $articles,
+  "events" => $events,
+));
+
+?>

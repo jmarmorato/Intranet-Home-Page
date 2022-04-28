@@ -38,7 +38,7 @@ $("#appendedInputButton").keyup(function(event) {
 
 //Attach autocomplete
 $('#appendedInputButton').autocomplete({
-  serviceUrl: '/GoogleAutoComplete',
+  serviceUrl: '/gacp.php',
   onSelect: function (suggestion) {
     $('#appendedInputButton').value = suggestion.value;
     googleSearch()
