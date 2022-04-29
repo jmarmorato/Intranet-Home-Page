@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/darkmode_style.css">
   <?php endif; ?>
 
-  <?php if($data["config"]["background_image"] != ""): ?>
+  <?php if(isset($data["config"]["background_image"]) && $data["config"]["background_image"] != ""): ?>
     <style type="text/css">
       body{
         background-image: url('<?php echo $data["config"]["background_image"]; ?>');
