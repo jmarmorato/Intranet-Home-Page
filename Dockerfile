@@ -9,7 +9,7 @@ RUN cp /var/www/Intranet-Home-Page/000-default.conf /etc/apache2/sites-available
 WORKDIR /var/www/Intranet-Home-Page/ThirdParty
 RUN composer install
 RUN a2enmod rewrite
-RUN echo "*/5 * * * * cd /var/www/Intranet-Home-Page/app && php cron.php" >> /etc/crontab
+RUN mkdir /var/spool/crontabs
+RUN crontab -l | { cat; echo "*/5 * * * * cd /var/www/Intranet-Home-Page/app && php cron.php"; } | crontab -
 RUN chmod +x /var/www/Intranet-Home-Page/entrypoint.sh
-
 ENTRYPOINT ["bash", "/var/www/Intranet-Home-Page/entrypoint.sh"]
