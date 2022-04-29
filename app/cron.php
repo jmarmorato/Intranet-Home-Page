@@ -4,7 +4,7 @@
 *   Application boot
 */
 
-require_once "../app/init.php";
+require_once "init.php";
 
 /*
 *   Run through each card and cache external data
