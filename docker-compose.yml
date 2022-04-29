@@ -1,0 +1,50 @@
+version: '3'
+
+networks:
+  intranet:
+    external: true
+  backend:
+
+services:
+  intranet:
+    build:
+      #Build the container using the Dockerfile in the current directory
+      context: .
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      #Provide Database Connection
+      DB_HOST: db:3306
+      DB_USER: intranet
+      DB_PASS: intranet
+      DB_SCHEMA: intranet
+    volumes:
+      - ./config:/var/www/Intranet-Home-Page/config/
+    networks:
+      - backend
+      - intranet
+    ports:
+      - 80:80
+    depends_on:
+        - db
+    entrypoint: bash /var/www/Intranet-Home-Page/entrypoint.sh
+
+  db:
+    image: mysql:5.7
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      MYSQL_DATABASE: intranet
+      MYSQL_USER: intranet
+      MYSQL_PASSWORD: intranet
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - backend

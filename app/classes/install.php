@@ -32,6 +32,8 @@ class Installer {
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch(PDOException $e) {
+      echo "Unable to connect to MySQL" . PHP_EOL;
+      echo $e->getMessage() . PHP_EOL;
       return $e->getMessage();
     }
 
