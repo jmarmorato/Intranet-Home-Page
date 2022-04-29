@@ -30,7 +30,7 @@ class CalDAVException extends \Exception {
 
     public function __toString() {
     	$string = '';
-    	$dom = new DOMDocument();
+    	$dom = new \DOMDocument();
     	$dom->preserveWhiteSpace = FALSE;
 		$dom->formatOutput = TRUE;
 
