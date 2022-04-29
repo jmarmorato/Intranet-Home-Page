@@ -1,6 +1,9 @@
 {
   "page_title"  : "Intranet",
   "header_text" : "",
+  "background_image: "",
+  "background_repeat": "",
+  "background_size": "",
 
   "weather_alerts" : {
     "enabled" : true,
