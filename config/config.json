@@ -1,0 +1,83 @@
+{
+  "page_title"  : "Intranet",
+  "header_text" : "",
+
+  "weather_alerts" : {
+    "enabled" : true,
+    "url" : "https://alerts.weather.gov/cap/wwaatmget.php?x=PAZ001&y=0"
+  },
+
+  "nav" : {
+    "lists" : [
+      {
+        "title" : "Media",
+        "items" : [
+          {"link_text" : "HBO MAX", "link_url" : "https://www.hbomax.com/"},
+          {"link_text" : "Netflix", "link_url" : "https://www.netflix.com/"},
+          {"link_text" : "Pandora", "link_url" : "https://www.pandora.com/"},
+          {"link_text" : "SiriusXM","link_url"  : "https://player.siriusxm.com/"},
+          {"link_text" : "YouTube", "link_url"  : "https://www.youtube.com/"}
+        ]
+      },
+      {
+        "title" : "Financial",
+        "items" : [
+          {"link_text" : "Bank of America", "link_url"  : "https://www.bankofamerica.com/"},
+          {"link_text" : "Robinhood", "link_url"  : "https://www.robinhood.com/"}
+        ]
+      },
+      {
+        "title" : "News",
+        "items" : [
+          {"link_text" : "CBS", "link_url" : "https://newyork.cbslocal.com/"},
+          {"link_text" : "CNN", "link_url" : "https://www.cnn.com/"},
+          {"link_text" : "FOX", "link_url" : "https://www.fox.com/"},
+          {"link_text" : "MSNBC", "link_url"  : "https://www.msnbc.com/"}
+        ]
+      },
+      {
+        "title" : "Shopping",
+        "items" : [
+          {"link_text" : "Amazon", "link_url" : "https://newyork.cbslocal.com/"},
+          {"link_text" : "eBay", "link_url" : "https://www.ebay.com/"}
+        ]
+      }
+    ]
+  },
+
+  "cards" : [
+    {
+      "type" : "quick_links",
+      "card_title" : "Quick Links",
+      "links" : [
+        {"link_text" : "Network Documentation", "link_url"  : "http://docs.example.net"},
+        {"link_text" : "Blue Iris", "link_url"  : "http://blueiris.example.net"},
+        {"link_text" : "Weather Station", "link_url"  : "http://weewx.example.net/"},
+        {"link_text" : "Shopping Lists", "link_url"  : "https://lists.example.net/"},
+        {"link_text" : "Jitsi", "link_url"  : "https://jitsi.example.net/"}
+        ]
+    },
+    {
+      "type" : "rss",
+      "card_title" : "News",
+      "rss_url" : "https://www.cbsnews.com/latest/rss/main",
+      "num_items" : 10,
+      "card_link" : "https://www.cbsnews.com",
+      "card_link_text" : "View News"
+    },
+    {
+      "type" : "image",
+      "card_title" : "Current Radar",
+      "image_url" : "https://radar.weather.gov/ridge/lite/NORTHEAST_loop.gif",
+      "image_href" : "https://radar.weather.gov/",
+      "card_link" : "https://forecast.weather.gov/",
+      "card_link_text" : "Local Forecast"
+    },
+    {
+      "type" : "us_weather",
+      "card_title" : "Weather",
+      "forecast_url" : "https://api.weather.gov/gridpoints/PHI/51,101/forecast",
+      "conditions_url" : "https://api.weather.gov/stations/<station-id>/observations/latest"
+    }
+  ]
+}

@@ -41,7 +41,7 @@ define("APPPATH", $app_path);
 */
 
 if ($installed) {
-  $config = file_get_contents("../config.json");
+  $config = file_get_contents(APPPATH . "/config/config.json");
   $config = json_decode($config, true);
 
   if ($config == null) {

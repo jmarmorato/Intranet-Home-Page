@@ -1,4 +1,6 @@
 <?php
+
+namespace SimpleCalDav;
 /**
 * Utility functions of a general nature which are used by
 * most AWL library classes.
