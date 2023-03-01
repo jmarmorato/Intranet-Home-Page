@@ -39,4 +39,10 @@ function card_dm() {
   }
 }
 
+function link_dm_andqs() {
+  if (DARKMODE) {
+    return "&style=dark";
+  }
+}
+
 ?>

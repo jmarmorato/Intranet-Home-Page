@@ -45,7 +45,8 @@ if ($installed) {
   $config = json_decode($config, true);
 
   if ($config == null) {
-    return "Error reading config file";
+    echo "Error reading config file";
+    return;
   }
 }
 

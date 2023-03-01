@@ -67,8 +67,9 @@ input.dark {
   max-height: 90%;
 }
 .radar {
-  max-width: 100%;
-  max-height: 90%;
+  width: 100%;
+  height: 90%;
+  border-style: none;
 }
 
 .table {
@@ -77,12 +78,17 @@ input.dark {
 
 .weather-alert-container {
   margin-bottom: -.75em;
+  max-width: 1450px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .weather-alert {
   margin-top: 1em;
   margin-bottom: 0rem;
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .news-card {
@@ -280,3 +286,53 @@ body.dark {
 /*
 *   Dark Mode for autocomplete classes are in darkmode_style.css
 */
+
+
+
+.icon-row{
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  max-width: 3.5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icon-card {
+  width:7em;
+  height:7em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding-top:10px;
+  margin-left:1em;
+  margin-right:1em;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: .5em;
+  margin-bottom: .5em;
+  border: 1px solid rgba(0,0,0,.125);
+  position: relative;
+}
+
+.icon-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height:2.6em;
+}
+
+.icon-card:hover {
+  opacity: .8;
+}
+
+.icon-text {
+  padding-top: 8px;
+  vertical-align: bottom;
+}

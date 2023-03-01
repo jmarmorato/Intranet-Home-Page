@@ -1,3 +1,6 @@
 ThirdParty/composer.lock
 ThirdParty/vendor/*
 .vscode/sftp.json
+db/
+config/*
+config/config.json

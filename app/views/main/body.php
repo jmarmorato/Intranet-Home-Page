@@ -12,6 +12,10 @@
   )); ?>
 <?php endif; ?>
 
+<?php if($data["config"]["icon_bar"]): ?>
+  <?php echo view("main/icon_row"); ?>
+<?php endif; ?>
+
 <div class="container-fluid main-container">
 
   <?php foreach($data["config"]["cards"] as $card): ?>
@@ -74,6 +78,16 @@
           "config" => $data["config"],
           "card"   => $card,
           "events" => $data["events"]
+        )); ?>
+      </div>
+
+    <?php elseif($card["type"] == "iframe"): ?>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <!--Insert iFrame Card-->
+        <?php echo view("cards/iframe", array(
+          "config" => $data["config"],
+          "card"   => $card
         )); ?>
       </div>
 

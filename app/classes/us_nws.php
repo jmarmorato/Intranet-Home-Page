@@ -2,24 +2,34 @@
 
 class US_NWS
 {
-  //This class retrieves alerts, and current and forecast weather conditions
-  //from the National Weather Service api
-
-  //This functions retrieves, deduplicates, and forms a list of active weather
-  //alerts in the given alert zone code
+  /*
+  *  This class retrieves alerts, and current and forecast weather conditions
+  *  from the National Weather Service api
+  *
+  *  This functions retrieves, deduplicates, and forms a list of active weather
+  *  alerts in the given alert zone code
+  */
   public static function getAlerts($config) {
 
+    //Get API URL which should contain the zone / county code
     $url = $config["weather_alerts"]["url"];
 
+    //Load cURL object
     $curl_obj = curl_init();
 
+    //Set cURL parameters
     curl_setopt($curl_obj, CURLOPT_URL, $url);
     curl_setopt($curl_obj, CURLOPT_RETURNTRANSFER, 1);
 
-    //The National Weather Service API requires a User Agent and email address
-    //be passed with each request.
+    /*
+    *   The National Weather Service API requires a User Agent and email address
+    *   to be passed with each request.  This is (allegedly) used to inform
+    *   comsumers of the API of upcoming breaking changes or issues with the
+    *   application.  I'll specify an inbox that I'll check periodically for
+    *   issues, and make updates as necessary.
+    */
     curl_setopt($curl_obj, CURLOPT_HTTPHEADER, array(
-      'User-Agent: (family-intranet, justin@marmorato.net)',
+      'User-Agent: (intranet-home-page, ihp@marmorato.net)',
     ));
 
     $out = curl_exec($curl_obj);
@@ -31,6 +41,10 @@ class US_NWS
     * Sometimes the NWS will issue an alert, and then issue that same alert
     * again for another (overlaping) area, or one that expires later.  Either
     * way, we don't want multiple of the same alerts cluttering the screen.
+    *
+    * TODO:  Need to make sure that if a second alert that expires later is issued
+    * for an area, the one that expires first is dropped and not the one expiring
+    * later.
     */
     $alerts_deduped = array();
 

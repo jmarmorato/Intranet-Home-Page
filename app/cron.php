@@ -13,20 +13,40 @@ require_once "init.php";
 foreach ($cards as $card) {
   switch ($card["type"]) {
     case "us_weather":
-      echo "Update NWS Forecast and current conditions" . PHP_EOL;
-      US_NWS::updateCache($conn, $config);
+      try {
+        echo "Update NWS Forecast and current conditions" . PHP_EOL;
+        US_NWS::updateCache($conn, $config);
+      } catch (Exception $e) {
+        echo "Error updating NWS forecast" . PHP_EOL;
+        return;
+      }
     break;
     case "piwigo":
-      echo "Update Piwigo album cache" . PHP_EOL;
-      Piwigo::updateCache($conn, $card);
+      try {
+        echo "Update Piwigo album cache" . PHP_EOL;
+        Piwigo::updateCache($conn, $card);
+      } catch (Exception $e) {
+        echo "Error updating Piwigo album";
+        return;
+      }
       break;
     case "rss":
-      echo "Update RSS Feed Cache" . PHP_EOL;
-      Rss::updateCache($conn, $card);
+      try {
+        echo "Update RSS Feed Cache" . PHP_EOL;
+        Rss::updateCache($conn, $card);
+      } catch (Exception $e) {
+        echo "Error updating RSS feed" . PHP_EOL;
+        return;
+      }
       break;
     case "caldav":
+      try {
       echo "Update CalDAV Events" . PHP_EOL;
       Caldav::updateCache($conn, $card);
+      } catch (Exception $e) {
+        echo "Error updating CalDAV events";
+        return;
+      }
       break;
   }
 }
