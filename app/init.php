@@ -64,9 +64,9 @@ if ($installed) {
   $schema = $db_config->db;
 
   try {
-    $conn = new PDO("mysql:host=$server;dbname=$schema", $username, $password);
+    $db = new PDO("mysql:host=$server;dbname=$schema", $username, $password);
     // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch(PDOException $e) {
     echo "Database Connection Failed\r";
     echo "If this is the first time you are running the software, make sure you have run install.php";

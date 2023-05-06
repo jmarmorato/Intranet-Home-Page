@@ -15,7 +15,7 @@ foreach ($cards as $card) {
     case "us_weather":
       try {
         echo "Update NWS Forecast and current conditions" . PHP_EOL;
-        US_NWS::updateCache($conn, $config);
+        US_NWS::updateCache($db, $config);
       } catch (Exception $e) {
         echo "Error updating NWS forecast" . PHP_EOL;
         return;
@@ -24,7 +24,7 @@ foreach ($cards as $card) {
     case "piwigo":
       try {
         echo "Update Piwigo album cache" . PHP_EOL;
-        Piwigo::updateCache($conn, $card);
+        Piwigo::updateCache($db, $card);
       } catch (Exception $e) {
         echo "Error updating Piwigo album";
         return;
@@ -33,7 +33,7 @@ foreach ($cards as $card) {
     case "rss":
       try {
         echo "Update RSS Feed Cache" . PHP_EOL;
-        Rss::updateCache($conn, $card);
+        Rss::updateCache($db, $card);
       } catch (Exception $e) {
         echo "Error updating RSS feed" . PHP_EOL;
         return;
@@ -42,7 +42,7 @@ foreach ($cards as $card) {
     case "caldav":
       try {
       echo "Update CalDAV Events" . PHP_EOL;
-      Caldav::updateCache($conn, $card);
+      Caldav::updateCache($db, $card);
       } catch (Exception $e) {
         echo "Error updating CalDAV events";
         return;
