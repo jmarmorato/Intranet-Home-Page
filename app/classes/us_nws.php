@@ -212,11 +212,31 @@ class US_NWS
     $db->commit();
   }
 
-  public static function retrieveAlertsCache($db) {
+  public static function retrieveAlertsCache($db, $config) {
       $sql = "SELECT * FROM nws_alerts";
       $result = $db->query($sql);
-
-      return $result;
+      
+      /*
+       * Check each alert item to see if it's enabled
+       */
+      $display_alerts = array();
+      foreach($result as $alert) {
+	  foreach ($config["weather_alerts"]["alerts"] as $alert_type) {
+	      $type_name = array_keys($alert_type)[0];
+	      $enabled = $alert_type[$type_name];
+	      var_dump($enabled);
+	      if(str_starts_with($alert["alert"], $type_name) && $enabled) {
+		  var_dump($enabled);
+		  array_push($display_alerts, array(
+		      "link" => $alert["link"],
+		      "alert" => $alert["alert"]
+		  ));
+	      }
+	      
+	  }
+      }
+            
+      return $display_alerts;
   }
 
   public static function retrieveForecastCache($db) {
