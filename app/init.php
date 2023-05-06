@@ -102,6 +102,7 @@ if ($installed) {
   require_once $app_path . "/app/classes/piwigo.php";
   require_once $app_path . "/app/classes/rss.php";
   require_once $app_path . "/app/classes/caldav.php";
+  require_once $app_path . "/app/classes/local_rand_image.php";
 
   $cards = $config["cards"];
 } else {

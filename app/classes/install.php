@@ -38,7 +38,7 @@ class Installer {
     }
 
     $sql = file_get_contents(APPPATH . "/system/schema.sql");
-
+    
     $query_result = $conn->query($sql);
 
     self::write_db_config($host, $user, $pass, $db, $path);

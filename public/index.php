@@ -42,6 +42,8 @@ foreach ($config["cards"] as $card) {
     case "caldav":
       $events = Caldav::retrieveEvents($conn, $card);
       break;
+    case "local_random_image":
+      $random_image = Local_Random_Image::getRandomImage();
   }
 }
 

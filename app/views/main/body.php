@@ -48,6 +48,17 @@
           "card"   => $card
         )); ?>
       </div>
+    
+    <?php elseif($card["type"] == "local_random_image"): ?>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <!--Insert Current Conditions Card-->
+        <?php echo view("cards/local_random_image", array(
+          "config" => $data["config"],
+          "image"  => $data["random_image"],
+          "card"   => $card
+        )); ?>
+      </div>
 
     <?php elseif($card["type"] == "image"): ?>
 

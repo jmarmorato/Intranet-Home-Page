@@ -4,3 +4,4 @@ ThirdParty/vendor/*
 db/
 config/*
 config/config.json
+nbproject/
