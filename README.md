@@ -2,7 +2,7 @@
 
 Created in response to personal "dashboards" that are little more than pages with a list of frequently accessed links, Intranet Home Page is a personal, self-hosted **homepage** with integrations for multiple publicly-available and self-hosted data feeds.  It can display RSS feeds, your self-hosted CalDAV calendar, a random selection of images from Piwigo, and more.
 
-###What's new in Version 3.0?
+### What's new in Version 3.0?
 - Application now uses CAP 1.2 to retrieve weather alerts
 - Weather alert descriptions now display in a modal, as CAP 1.2 doesn't supply a description link
 - Weather alerts are filtered based on config file
