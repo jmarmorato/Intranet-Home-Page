@@ -23,6 +23,7 @@ services:
       DB_SCHEMA: intranet
     volumes:
       - ./config:/var/www/Intranet-Home-Page/config/
+      - ./public/images:/var/www/Intranet-Home-Page/public/images
     networks:
       - backend
       - intranet

@@ -15,9 +15,10 @@ foreach ($cards as $card) {
     case "us_weather":
       try {
         echo "Update NWS Forecast and current conditions" . PHP_EOL;
-        US_NWS::updateCache($db, $config);
+        US_NWS::updateCache($db, $config, $card);
       } catch (Exception $e) {
         echo "Error updating NWS forecast" . PHP_EOL;
+	echo $e;
         return;
       }
     break;
@@ -44,6 +45,7 @@ foreach ($cards as $card) {
       echo "Update CalDAV Events" . PHP_EOL;
       Caldav::updateCache($db, $card);
       } catch (Exception $e) {
+	  echo $e;
         echo "Error updating CalDAV events";
         return;
       }

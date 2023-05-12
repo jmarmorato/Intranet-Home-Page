@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt update -y
 RUN DEBIAN_FRONTEND=noninteractive TZ=America/New_York apt-get -y install tzdata

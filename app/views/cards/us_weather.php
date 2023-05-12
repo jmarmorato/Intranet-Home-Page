@@ -8,7 +8,7 @@ foreach ($data["current"] as $current) {
 
 ?>
 
-<div class="card middle-row-card <?php echo card_dm(); ?>">
+<div class="card <?php if ($data["card_index"] < 3) { echo "top-row-card"; } else { echo "middle-row-card"; } ?> <?php echo card_dm(); ?>">
   <div class="card-body">
     <h5 class="card-title">Weather</h5>
     <hr>
@@ -20,7 +20,7 @@ foreach ($data["current"] as $current) {
           <p>Now: <?php echo $conds["text_description"]; ?> and <?php echo $conds["temperature"] ?>&deg;F</p>
         </div>
         <div class="col-3" style="margin-bottom: 0em;">
-          <img style="max-width: 100%;" src="<?php echo $conds["icon"]; ?>">
+          <img style="border-radius:4px; max-width: 100%;" src="<?php echo $conds["icon"]; ?>">
         </div>
 
       </div>
@@ -35,7 +35,7 @@ foreach ($data["current"] as $current) {
             <p style="font-size:.85rem;"><?php if ($period["is_daytime"]) { echo "High "; } else { echo "Low "; } echo $period["temperature"]; ?>&deg;F</p>
           </div>
           <div class="col-3" style="margin-bottom: 0em;">
-            <img style="max-width: 100%;" src="<?php echo $period["icon"]; ?>">
+            <img style="border-radius:4px; max-width: 100%;" src="<?php echo $period["icon"]; ?>">
           </div>
         </div>
         <hr style="margin-top:0em;">

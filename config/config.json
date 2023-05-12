@@ -4,7 +4,54 @@
 
   "weather_alerts" : {
     "enabled" : true,
-    "url" : "https://alerts.weather.gov/cap/wwaatmget.php?x=PAZ001&y=0"
+    "url" : "https://api.weather.gov/alerts/active?zone=COZ043",
+    "alerts" : [
+      {"Hazardous Weather Outlook" : true},
+      {"Winter Storm Watch" : true},
+      {"Blizzard Warning" : true},
+      {"Winter Storm Warning" : true},
+      {"Ice Storm Warning" : true},
+      {"Winter Weather Advisory" : true},
+      {"Freeze Watch" : true},
+      {"Freeze Warning" : true},
+      {"Frost Advisory" : true},
+      {"Wind Chill Advisory" : true},
+      {"Wind Chill Warning" : true},
+      {"Fire Weather Watch" : true},
+      {"Red Flag Warning" : true},
+      {"Dense Fog Advisory" : true},
+      {"High Wind Watch" : true},
+      {"High Wind Warning" : true},
+      {"Wind Advisory" : true},
+      {"Severe Thunderstorm Watch" : true},
+      {"Severe Thunderstorm Warning" : true},
+      {"Tornado Watch" : true},
+      {"Tornado Warning" : true},
+      {"Extreme Wind Warning" : true},
+      {"Small Craft Advisory" : true},
+      {"Gale Warning" : true},
+      {"Storm Warning" : true},
+      {"Hurricane Force Wind Warning" : true},
+      {"Special Marine Warning" : true},
+      {"Coastal Flood Watch" : true},
+      {"Coastal Flood Warning" : true},
+      {"Coastal Flood Advisory" : true},
+      {"Flash Flood Watch" : true},
+      {"Flash Flood Warning" : true},
+      {"Flood Watch" : true},
+      {"Flood Warning" : true},
+      {"River Flood Watch" : true},
+      {"River Flood Warning" : true},
+      {"Excessive Heat Watch" : true},
+      {"Excessive Heat Warning" : true},
+      {"Heat Advisory" : true},
+      {"Tropical Storm Watch" : true},
+      {"Tropical Storm Warning" : true},
+      {"Hurricane Watch" : true},
+      {"Hurricane Warning" : true},
+      {"High Surf Advisory" : true},
+      {"Rip Current Statement" : true}
+    ]
   },
 
   "nav" : {
@@ -47,6 +94,15 @@
 
   "cards" : [
     {
+        "type": "image",
+        "image_url": "https://imgs.xkcd.com/comics/dependency.png",
+        "card_title": "XKCD"
+    },
+    {
+      "type": "local_random_image",
+      "card_title": "Memories"
+    },
+    {
       "type" : "quick_links",
       "card_title" : "Quick Links",
       "links" : [
@@ -66,18 +122,15 @@
       "card_link_text" : "View News"
     },
     {
-      "type" : "image",
-      "card_title" : "Current Radar",
-      "image_url" : "https://radar.weather.gov/ridge/lite/NORTHEAST_loop.gif",
-      "image_href" : "https://radar.weather.gov/",
-      "card_link" : "https://forecast.weather.gov/",
-      "card_link_text" : "Local Forecast"
+      "type" : "iframe",
+      "card_title" : "Radar",
+      "iframe_url" : "https://www.rainviewer.com/map.html?loc=40.3633,-74.6191,6&oFa=0&oC=1&oU=0&oCS=1&oF=0&oAP=1&c=5&o=90&lm=1&layer=radar&sm=1&sn=1&hu=0"
     },
     {
       "type" : "us_weather",
       "card_title" : "Weather",
       "forecast_url" : "https://api.weather.gov/gridpoints/PHI/51,101/forecast",
-      "conditions_url" : "https://api.weather.gov/stations/<station-id>/observations/latest"
+      "conditions_url" : "https://api.weather.gov/stations/KTPA/observations/latest"
     }
   ]
 }

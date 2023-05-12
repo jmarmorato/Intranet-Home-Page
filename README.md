@@ -2,6 +2,15 @@
 
 Created in response to personal "dashboards" that are little more than pages with a list of frequently accessed links, Intranet Home Page is a personal, self-hosted **homepage** with integrations for multiple publicly-available and self-hosted data feeds.  It can display RSS feeds, your self-hosted CalDAV calendar, a random selection of images from Piwigo, and more.
 
+###What's new in Version 3.0?
+- Application now uses CAP 1.2 to retrieve weather alerts
+- Weather alert descriptions now display in a modal, as CAP 1.2 doesn't supply a description link
+- Weather alerts are filtered based on config file
+- Random image from local directory
+- Fixed bug that only allowed each card to be used once
+- Changed database handle from $conn to $db for readability
+- Updated Dockerfile to use Ubuntu 22.04 from 20.04
+
 ### What's new in Version 2.1?
 - Added Docker-Compose support
 - You can set an image as the page background (thanks JDSlimz)
@@ -107,7 +116,7 @@ docker-compose up
 
 ### Branding
 
-The only branding built in at this point is the tab / window title (page_title), and the navbar title (header_text).  These can be set to whatever stringd you want, however the header_text should be kept short if many drop down menus will be configured, as this can cause spacing issues.
+The only branding built in at this point is the tab / window title (page_title), and the navbar title (header_text).  These can be set to whatever strings you want, however the header_text should be kept short if many drop down menus will be configured, as this can cause spacing issues.
 
 ### Weather Alerts (US only at this time)
 
@@ -188,21 +197,25 @@ The random Piwigo image card displays a random image from the specified piwigo a
 }
 ```
 
+### Random Local Image Card
+
+The random local image card displays a random image from the public/images directory.
+
+```json
+{
+  "type" : "local_random_image",
+  "card_title" : "Random Sample"
+},
+```
+
 ### Quick Links
 
 The Quick Links card displays a list of links that you may frequently want to access without clicking a dropdown first.  Use this for your most frequently accessed links.
 
 ```json
 {
-  "type" : "quick_links",
-  "card_title" : "Quick Links",
-  "links" : [
-    {"link_text" : "Network Documentation", "link_url"  : "http://docs.example.net"},
-    {"link_text" : "Blue Iris", "link_url"  : "http://blueiris.example.net"},
-    {"link_text" : "Weather Station", "link_url"  : "http://weewx.example.net/"},
-    {"link_text" : "Shopping Lists", "link_url"  : "https://lists.example.net/"},
-    {"link_text" : "Jitsi", "link_url"  : "https://jitsi.example.net/"}
-  ]
+  "type" : "local_random_image",
+  "card_title" : "Random Sample"
 }
 ```
 

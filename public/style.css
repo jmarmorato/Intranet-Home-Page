@@ -65,6 +65,9 @@ input.dark {
 .random-sample /* (Hold the one you need) */{
   max-width: 100%;
   max-height: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 .radar {
   width: 100%;
@@ -335,4 +338,18 @@ body.dark {
 .icon-text {
   padding-top: 8px;
   vertical-align: bottom;
+}
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+
+image-container {
+  max-width: 100%;
+  max-height: 90%;
 }

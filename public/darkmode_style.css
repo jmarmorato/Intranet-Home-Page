@@ -43,3 +43,12 @@ div.dropdown-menu {
 div.dropdown-menu a:hover {
   background-color: #4e5760;
 }
+
+.modal-content {
+   background-color: #343A40;
+   color: white;
+}
+
+.hr {
+    border-color: white;
+}
